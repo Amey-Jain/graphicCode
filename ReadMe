@@ -1,1 +1,4 @@
-This can be run using qt program.This is made basically to help out the ones reading the code to have a better understanding of the code.The program consists of GraphicCode.cpp which gives instructions and UI part drawing the instructions.
+This tool can be used to visualize C code in a flowchart form to better understand logic of code. Some examples are present in example folder.
+This can be run using qt program. The program consists of two parts:
+1. GraphicCode.cpp which gives instructions
+2. UI part drawing the instructions.
