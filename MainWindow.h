@@ -1,12 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include <QMainWindow>
+#include "QMainWindow"
 #include <QVector>
-#include <TabWidget1.h>
-#include <TabWidget2.h>
-#include <Widget1.h>
-#include <Widget2.h>
-#include <QtGui>
+#include "TabWidget1.h"
+#include "TabWidget2.h"
+#include "Widget1.h"
+#include "Widget2.h"
+#include <QtWidgets>//#include <QtGui>
 #include <QtCore>
 #include <QApplication>
 #include <QGraphicsItem>

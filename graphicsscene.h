@@ -60,7 +60,7 @@ public:
            num=0;
            for(k=0;k<j;k++)
            {
-                num=num*10+(instruction1[k].toAscii()-48);
+                num=num*10+(instruction1[k].toLatin1()-48);
            }
            drawLines(painter,num, instruction1.right(instruction1.length()-j-1));
        }
