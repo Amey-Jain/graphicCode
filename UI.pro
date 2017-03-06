@@ -14,3 +14,5 @@ HEADERS += \
     TabWidget2.h \
     Widget2.h \
     graphicsscene.h
+
+QT += widgets

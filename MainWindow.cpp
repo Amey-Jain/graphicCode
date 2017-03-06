@@ -1,4 +1,4 @@
-#include <MainWindow.h>
+#include "MainWindow.h"
 #include <QSize>
 #include <QString>
 #include <QTextStream>
@@ -6,7 +6,7 @@
 #include <QApplication>
 #include <QFileDialog>
 #include <QtCore>
-#include <QtGui>
+#include <QtWidgets>//#include <QtGui>
 #include <QFile>
 #include <QProcess>
 #include <cstdlib>
@@ -60,18 +60,18 @@ MainWindow ::MainWindow()
    menubar->addAction(menuAbout->menuAction());
 
    this->setFont(font);
-   this->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
-   menuFile->setTitle(QApplication::translate("MainWindow", "File", 0, QApplication::UnicodeUTF8));
-   menuAbout->setTitle(QApplication::translate("MainWindow", "About", 0, QApplication::UnicodeUTF8));
+   this->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+   menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
+   menuAbout->setTitle(QApplication::translate("MainWindow", "About", 0));
 
-   actionOpen_File->setText(QApplication::translate("MainWindow", "Open File", 0, QApplication::UnicodeUTF8));
-   actionOpen_File->setShortcut(QApplication::translate("MainWindow", "Ctrl+O", 0, QApplication::UnicodeUTF8));
+   actionOpen_File->setText(QApplication::translate("MainWindow", "Open File", 0));
+   actionOpen_File->setShortcut(QApplication::translate("MainWindow", "Ctrl+O", 0));
 
-   actionExit->setText(QApplication::translate("MainWindow", "Exit", 0, QApplication::UnicodeUTF8));
-   actionExit->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", 0, QApplication::UnicodeUTF8));
+   actionExit->setText(QApplication::translate("MainWindow", "Exit", 0));
+   actionExit->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", 0));
 
-   actionAbout_Graphic_code->setText(QApplication::translate("MainWindow", "About Graphic_code", 0, QApplication::UnicodeUTF8));
-   actionAbout_Graphic_code->setShortcut(QApplication::translate("MainWindow", "Ctrl+A", 0, QApplication::UnicodeUTF8));
+   actionAbout_Graphic_code->setText(QApplication::translate("MainWindow", "About Graphic_code", 0));
+   actionAbout_Graphic_code->setShortcut(QApplication::translate("MainWindow", "Ctrl+A", 0));
 
 
   connect(actionOpen_File, SIGNAL(triggered()),this, SLOT(open()));
@@ -89,40 +89,6 @@ MainWindow ::MainWindow()
 
 void MainWindow::open()
 {
-
-   /* QString name , file = "./a.out < in.txt";
-
-
-    QFile files("in.txt");
-    files.open(QIODevice::WriteOnly | QIODevice::Text);
-
-        name= QFileDialog::getOpenFileName(this);
-        QTextStream out(&files);
-        out<<name<<endl;
-        out<<"-1"<<endl;
-        files.close();
-
-        //! file.append(name);
-
-      /*  char * writable = new char[file.size() + 1];
-        std::copy(file.begin(), file.end(), writable);
-        writable[file.size()] = '\0';
-*/
-     //!   system("pwd");
-    //! system("cd ..");
-   //! system("pwd");
-    //! system("cd GraphicCode");
-
-   //! system("c++ ../GraphicCode/graphicCode.cpp");
-   //!  system("gedit ../GraphicCode/graphicCode.cpp &");
-
-    //! system(file.toStdString().c_str());
-
-    //! QString fileName4 = "/home/meghana/Desktop/sample.cpp";
-    //! QFile data3(fileName4);
-
-
-
      QFile files("in.txt");
      files.open(QIODevice::WriteOnly | QIODevice::Text);
 
@@ -150,20 +116,7 @@ void MainWindow::open()
    QString fileName5 ="classrange.txt";
    QFile data4(fileName5);
 
-   //! QTextStream out(stdout);
-  //  QString fileName1 = QFileDialog::getOpenFileName(this);
-    //    QFile data(fileName1);
-       // QString fileName2 = QFileDialog::getOpenFileName(this);
-        //QFile data1(fileName2);
-      //  QString fileName3 = QFileDialog::getOpenFileName(this);
-      //QFile data2(fileName3);
-       // QString fileName4 = QFileDialog::getOpenFileName(this);
-        //QFile data3(fileName4);
-       /* out<<fileName1<<endl;
-        out<<fileName2<<endl;
-        out<<fileName3<<endl;
-        out<<fileName4<<endl;
-*/
+
     QString line;
     QVector<QString> instructions1,filerange1,arbit;
     QVector<QVector<QString> > functionrange1;
@@ -258,12 +211,12 @@ void MainWindow::open()
 
         for(l=0;l<start.length();l++)
         {
-             startnum=startnum*10+(start[l].toAscii()-48);
+             startnum=startnum*10+(start[l].toLatin1()-48);
         }
 
         for(l=0;l<end.length();l++)
         {
-             endnum=endnum*10+(end[l].toAscii()-48);
+             endnum=endnum*10+(end[l].toLatin1()-48);
         }
         sout<<"endnum**"<<endnum<<endl;
 
@@ -310,12 +263,12 @@ void MainWindow::open()
             fstartnum=0;fendnum=0;
             for(l=0;l<fstart.length();l++)
             {
-                 fstartnum=fstartnum*10+(fstart[l].toAscii()-48);
+                 fstartnum=fstartnum*10+(fstart[l].toLatin1()-48);
             }
 
             for(l=0;l<fend.length();l++)
             {
-                 fendnum=fendnum*10+(fend[l].toAscii()-48);
+                 fendnum=fendnum*10+(fend[l].toLatin1()-48);
             }
 
             sout<<"fendnum**"<<fendnum<<endl;
@@ -325,7 +278,6 @@ void MainWindow::open()
             for(int k=fstartnum;k<=fendnum;k++)
             {
                 ((((*functionwidget.back()).back())->scene)->instruction).push_back(instructions[k]);
-                //! sout<<"mainwindow  "<<instructions[k]<<endl;
             }
             QPainter qp;
             (((*functionwidget.back()).back())->scene)->drawForeground(&qp,(((*functionwidget.back()).back())->scene)->sceneRect());
@@ -347,15 +299,6 @@ void MainWindow::open()
 
             (((*functionwidget.back()).back())->scene1)->addItem(txt1);
 
-          /*  for(int k=fstartnum;k<=fendnum;k++)
-            {
-                ((((*functionwidget.back()).back())->scene)->instruction).push_back(instructions[k]);
-                out<<"mainwindow  "<<instructions[k]<<endl;
-            }
-            QPainter qp;
-            (((*functionwidget.back()).back())->scene)->drawForeground(&qp,(((*functionwidget.back()).back())->scene)->sceneRect());
-             (tabgroup2.back())->addTab(((*functionwidget.back()).back()),funcname);
-            lastfunc=fendnum;*/
         }
         lastfunc=0;
         tabgroup1->addTab(filewidget.back(),filename);

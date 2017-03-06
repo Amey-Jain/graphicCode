@@ -4,7 +4,8 @@
 #include <QTextStream>
 #include <QString>
 #include <QVector>
-#include <MainWindow.h>
+#include <QWidget>
+#include "MainWindow.h"
 int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
